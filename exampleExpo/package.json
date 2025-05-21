@@ -6,7 +6,6 @@
     "start": "expo start --dev-client",
     "android": "expo run:android",
     "ios": "expo run:ios",
-    "web": "expo start --web",
     "eject": "expo eject",
     "postinstall": "patch-package",
     "lint": "eslint --color --ext .js,.jsx,.ts,.tsx src",
@@ -20,7 +19,6 @@
     "axios": "^0.27.2",
     "babel-loader": "^8.2.5",
     "expo": "~45.0.0",
-    "expo-linear-gradient": "~11.3.0",
     "expo-linking": "~3.1.0",
     "expo-localization": "~13.0.0",
     "expo-splash-screen": "~0.15.1",
@@ -78,5 +76,6 @@
       "prettier --write"
     ]
   },
-  "private": true
+  "private": true,
+  "packageManager": "yarn@1.22.22"
 }

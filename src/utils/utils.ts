@@ -65,7 +65,7 @@ export const transformOrigin = (
         ...transformations,
         { translateX: -x },
         { translateY: -y },
-    ];
+    ] as RNTransform;
 };
 
 const debug = (msg: string, val: any) => {

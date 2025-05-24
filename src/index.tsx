@@ -30,6 +30,7 @@ export type IPageFlipperProps = {
     renderPage?: (data: any) => any;
     pageSize: Size;
     contentContainerStyle: ViewStyle;
+    startPageIndex?: number;
 };
 
 export type PageFlipperInstance = {
@@ -79,6 +80,7 @@ const PageFlipper = React.forwardRef<PageFlipperInstance, IPageFlipperProps>(
             renderPage,
             pageSize = { height: 600, width: 400 },
             contentContainerStyle,
+            startPageIndex = 0,
         },
         ref
     ) => {
@@ -87,7 +89,7 @@ const PageFlipper = React.forwardRef<PageFlipperInstance, IPageFlipperProps>(
             width: 0,
         });
         const [state, setState] = useSetState<State>({
-            pageIndex: 0,
+            pageIndex: startPageIndex,
             pages: [],
             isAnimating: false,
             initialized: false,

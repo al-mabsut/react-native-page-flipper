@@ -45,5 +45,3 @@ exampleExpo/ios/Pods
 .gradle
 local.properties
 android.iml
-
-lib/

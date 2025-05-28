@@ -1,0 +1,1 @@
+{"version":3,"names":["React","LinearGradient","jsx","_jsx","Gradient","props"],"sourceRoot":"../../../src","sources":["Components/Gradient.tsx"],"mappings":";;AAAA,OAAOA,KAAK,MAAM,OAAO;AACzB,OAAOC,cAAc,MAEd,8BAA8B;AAAC,SAAAC,GAAA,IAAAC,IAAA;AAEtC,MAAMC,QAAuC,GAAIC,KAAK,IAAK;EACvD,oBAAOF,IAAA,CAACF,cAAc;IAAA,GAAKI;EAAK,CAAG,CAAC;AACxC,CAAC;AAED,SAASD,QAAQ","ignoreList":[]}

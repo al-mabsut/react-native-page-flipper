@@ -1,15 +1,11 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { Pressable, StyleSheet, View, ViewStyle } from 'react-native';
-import {
-    PanGestureHandler,
-    PanGestureHandlerGestureEvent,
-} from 'react-native-gesture-handler';
+import { Gesture, GestureDetector } from 'react-native-gesture-handler';
 import Animated, {
     Easing,
     Extrapolate,
     interpolate,
     runOnJS,
-    useAnimatedGestureHandler,
     useAnimatedStyle,
     useSharedValue,
     withTiming,
@@ -222,20 +218,20 @@ const BookPage = React.forwardRef<BookPageInstance, IBookPageProps>(
             };
         });
 
-        const onPanGestureHandler = useAnimatedGestureHandler<
-            PanGestureHandlerGestureEvent,
-            { x: number }
-        >({
-            // @ts-ignore
-            onStart: (event, ctx) => {
+        // Context for gesture - using shared value instead of callback context
+        const startX = useSharedValue(0);
+
+        const panGesture = Gesture.Pan()
+            .enabled(gesturesEnabled)
+            .onStart(() => {
                 if (onPageDragStart && typeof onPageDragStart === 'function') {
                     runOnJS(onPageDragStart)();
                 }
-                ctx.x = x.value;
-            },
-            onActive: (event, ctx) => {
+                startX.value = x.value;
+            })
+            .onUpdate((event) => {
                 runOnJS(onDrag)(true);
-                x.value = ctx.x + event.translationX;
+                x.value = startX.value + event.translationX;
                 rotateYAsDeg.value = interpolate(
                     x.value,
                     [-containerWidth, 0, containerWidth],
@@ -246,8 +242,8 @@ const BookPage = React.forwardRef<BookPageInstance, IBookPageProps>(
                 if (onPageDrag && typeof onPageDrag === 'function') {
                     runOnJS(onPageDrag)();
                 }
-            },
-            onEnd: (event) => {
+            })
+            .onEnd((event) => {
                 if (onPageDragEnd && typeof onPageDragEnd === 'function') {
                     runOnJS(onPageDragEnd)();
                 }
@@ -284,8 +280,7 @@ const BookPage = React.forwardRef<BookPageInstance, IBookPageProps>(
                         }
                     );
                 }
-            },
-        });
+            });
 
         if (!front || !back) {
             return null;
@@ -297,10 +292,7 @@ const BookPage = React.forwardRef<BookPageInstance, IBookPageProps>(
         const frontUrl = right ? front.right : front.left;
         const backUrl = right ? back.left : back.right;
         return (
-            <PanGestureHandler
-                onGestureEvent={onPanGestureHandler}
-                enabled={gesturesEnabled}
-            >
+            <GestureDetector gesture={panGesture}>
                 <Animated.View style={containerStyle}>
                     {isPressable && (
                         <Pressable
@@ -392,7 +384,7 @@ const BookPage = React.forwardRef<BookPageInstance, IBookPageProps>(
                         )}
                     </Animated.View>
                 </Animated.View>
-            </PanGestureHandler>
+            </GestureDetector>
         );
     }
 );

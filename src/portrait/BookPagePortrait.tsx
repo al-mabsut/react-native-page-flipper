@@ -6,6 +6,7 @@ import Animated, {
     Extrapolate,
     interpolate,
     runOnJS,
+    type SharedValue,
     useAnimatedStyle,
     useDerivedValue,
     useSharedValue,
@@ -276,7 +277,7 @@ const BookPagePortrait = React.forwardRef<PortraitBookInstance, IBookPageProps>(
 type IPageProps = {
     right: boolean;
     page: Page;
-    rotateYAsDeg: Animated.SharedValue<number>;
+    rotateYAsDeg: SharedValue<number>;
     containerWidth: number;
     containerSize: Size;
     getPageStyle: any;

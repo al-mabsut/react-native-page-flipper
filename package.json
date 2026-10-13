@@ -13,6 +13,7 @@
     ],
     "scripts": {
         "typescript": "tsc --noEmit",
+        "typecheck": "tsc --noEmit -p tsconfig.build.json",
         "lint": "eslint \"src/**/*.{js,ts,tsx}\"",
         "dev": "yarn watch 'yarn prepare' ./src",
         "build": "bob build"

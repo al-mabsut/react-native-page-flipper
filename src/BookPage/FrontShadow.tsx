@@ -2,13 +2,14 @@ import React from 'react';
 import Animated, {
     Extrapolate,
     interpolate,
+    type SharedValue,
     useAnimatedStyle,
 } from 'react-native-reanimated';
 import { Gradient } from '../Components/Gradient';
 import { transformOrigin } from '../utils/utils';
 
 type FrontShadowProps = {
-    degrees: Animated.SharedValue<number>;
+    degrees: SharedValue<number>;
     viewHeight: number;
     right: boolean;
 };

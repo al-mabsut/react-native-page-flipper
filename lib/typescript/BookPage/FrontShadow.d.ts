@@ -1,7 +1,7 @@
 import React from 'react';
-import Animated from 'react-native-reanimated';
+import { type SharedValue } from 'react-native-reanimated';
 type FrontShadowProps = {
-    degrees: Animated.SharedValue<number>;
+    degrees: SharedValue<number>;
     viewHeight: number;
     right: boolean;
 };

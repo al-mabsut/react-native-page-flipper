@@ -37,6 +37,6 @@ export type State = {
     nextPageIndex?: number;
     isPortrait: boolean;
 };
-declare const _default: React.MemoExoticComponent<React.ForwardRefExoticComponent<IPageFlipperProps & React.RefAttributes<PageFlipperInstance>>>;
+declare const _default: React.NamedExoticComponent<IPageFlipperProps & React.RefAttributes<PageFlipperInstance>>;
 export default _default;
 //# sourceMappingURL=index.d.ts.map

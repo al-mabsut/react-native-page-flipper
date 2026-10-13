@@ -517,7 +517,7 @@ const PageFlipper = React.forwardRef<PageFlipperInstance, IPageFlipperProps>(
                         ) : (
                             <View style={styles.portraitContent}>
                                 <View
-                                    style={{ ...StyleSheet.absoluteFillObject }}
+                                    style={{ ...StyleSheet.absoluteFill }}
                                 >
                                     <BookPagePortrait
                                         {...bookPageProps}
@@ -532,7 +532,7 @@ const PageFlipper = React.forwardRef<PageFlipperInstance, IPageFlipperProps>(
                                 {next && (
                                     <View
                                         style={{
-                                            ...StyleSheet.absoluteFillObject,
+                                            ...StyleSheet.absoluteFill,
                                             zIndex: -5,
                                             overflow: 'hidden',
                                         }}

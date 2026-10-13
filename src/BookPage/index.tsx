@@ -393,7 +393,7 @@ export { BookPage };
 
 const BlankPage = () => (
     <View
-        style={{ ...StyleSheet.absoluteFillObject, backgroundColor: '#fff' }}
+        style={{ ...StyleSheet.absoluteFill, backgroundColor: '#fff' }}
     />
 );
 

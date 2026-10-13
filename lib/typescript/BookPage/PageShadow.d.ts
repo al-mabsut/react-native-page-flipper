@@ -1,8 +1,8 @@
 import React from 'react';
-import Animated from 'react-native-reanimated';
+import { type SharedValue } from 'react-native-reanimated';
 import type { Size } from '../types';
 type PageShadowProps = {
-    degrees: Animated.SharedValue<number>;
+    degrees: SharedValue<number>;
     viewHeight: number;
     right: boolean;
     containerSize: Size;

@@ -1,7 +1,7 @@
 import React from 'react';
-import Animated from 'react-native-reanimated';
+import { type SharedValue } from 'react-native-reanimated';
 type BackShadowProps = {
-    degrees: Animated.SharedValue<number>;
+    degrees: SharedValue<number>;
     right: boolean;
 };
 declare const BackShadow: React.FC<BackShadowProps>;

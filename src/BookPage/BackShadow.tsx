@@ -42,7 +42,7 @@ const BackShadow: React.FC<BackShadowProps> = ({ degrees, right }) => {
         <Animated.View
             style={[
                 {
-                    ...StyleSheet.absoluteFillObject,
+                    ...StyleSheet.absoluteFill,
                     zIndex: 4,
                 },
                 animatedStyle,
@@ -52,7 +52,7 @@ const BackShadow: React.FC<BackShadowProps> = ({ degrees, right }) => {
                 {...position}
                 colors={colors}
                 style={{
-                    ...StyleSheet.absoluteFillObject,
+                    ...StyleSheet.absoluteFill,
                 }}
             />
         </Animated.View>

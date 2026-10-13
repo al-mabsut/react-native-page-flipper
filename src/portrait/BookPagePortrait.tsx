@@ -368,7 +368,7 @@ const IPage: React.FC<IPageProps> = ({
     return (
         <View
             style={{
-                ...StyleSheet.absoluteFillObject,
+                ...StyleSheet.absoluteFill,
                 zIndex: !right ? 5 : 0,
             }}
         >
